@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Mentor>
+
+@{
+    Layout = null;
+
+}
+
+<form asp-controller="Mentor" asp-action="Index" method="post" enctype="multipart/form-data">
+
+    <input type="file" name="file" />
+    <hr />
+    <button type="submit">Upload</button>
+</form>
+
+
+@if (Model.Count() > 0)
+{
+    <hr />
+    <table cellpadding="0" cellspacing="0" border="1">
+        <tr>
+            <th>Id</th>
+            <th>DateHired</th>
+            <th>EmailAddress</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Position</th>
+            <th>ProfessionalNumber</th>
+            <th>OrganisationId</th>
+        </tr>
+        @foreach (Mentor mentor in Model)
+        {
+            <tr>
+                <td>@mentor.Id</td>
+                <td>@mentor.DateHired</td>
+                <td>@mentor.EmailAddress</td>
+                <td>@mentor.Firstname</td>
+                <td>@mentor.Lastname</td>
+                <td>@mentor.Position</td>
+                <td>@mentor.ProfessionalNumber</td>
+                <td>@mentor.OrganisationId</td>
+            </tr>
+        }
+    </table>
+}
